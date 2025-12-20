@@ -60,6 +60,28 @@ Papéis representam **responsabilidades**, não ações isoladas.
 ### Credencias
 - **User:** `root`
 - **Password:** `1234`
+  
+<img width="553" height="547" alt="image" src="https://github.com/user-attachments/assets/9811c84f-0c2d-48bd-94fe-04e9ffab5edf" />
+
+# Observação importante ⚠️
+
+- No primeiro momento, não é possível definir o nome do banco de dados, pois ocorre erro na conexão.
+- Por isso, siga este fluxo:
+
+1-Crie a conexão sem informar o nome do banco (em branco)
+2-Realize o teste de conexão
+3-Após a conexão criada com sucesso:
+  - Clique com o botão direito sobre a conexão
+  - Selecione New → Query Console
+  - Crie o banco de dados manualmente via script SQL
+  <img width="610" height="86" alt="image" src="https://github.com/user-attachments/assets/0672de7f-2598-40f2-bc5c-781b24c72a60" />
+
+### Criar o Banco de Dados
+
+```sql
+CREATE DATABASE Klavi;
+USE Klavi;
+```````````
 
 ### Nome do Banco de Dados
 - Você pode colocar qualquer nome. 
@@ -69,14 +91,8 @@ Papéis representam **responsabilidades**, não ações isoladas.
 - O **DATAGRIPE IDE** foi usado para gerenciar e executar os scripts SQL
 - No entanto, qualquer IDE ou cliente compatível com MySQL pode ser usado sem afetar a solução.
 
----
 
-### Criar o Banco de Dados
-
-```sql
-CREATE DATABASE Klavi;
-USE Klavi;
-```````````
+----
 
 # 🇺🇸 English
 
@@ -139,18 +155,36 @@ Roles represent **responsibilities**, not isolated actions.
 - **User:** `root`
 - **Password:** `1234`
 
-### Database Name
-Any database name can be used.  
-In this project, the database name used is: **`Klavi`**
+<img width="553" height="547" alt="image" src="https://github.com/user-attachments/assets/9811c84f-0c2d-48bd-94fe-04e9ffab5edf" />
 
-### IDE
-The **DATAGRIPE IDE** was used to manage and execute the SQL scripts.  
-However, any MySQL-compatible IDE or client can be used without affecting the solution.
+# Important note ⚠️
 
----
+- At first, it is not possible to define the database name, as this will cause a connection error.
+- Therefore, follow the steps below:
+
+1- Create the connection without specifying a database name (leave it blank)
+2- Run a connection test
+3- After the connection is successfully created:
+   - Right-click on the connection
+   - Select New → Query Console
+   - Create the database manually using an SQL script
+  <img width="610" height="86" alt="image" src="https://github.com/user-attachments/assets/0672de7f-2598-40f2-bc5c-781b24c72a60" />
+
 
 ### Create Database
 
 ```sql
 CREATE DATABASE Klavi;
 USE Klavi;
+``````
+
+### Database Name
+- Any database name can be used.  
+- In this project, the database name used is: **`Klavi`**
+
+### IDE
+- The **DATAGRIPE IDE** was used to manage and execute the SQL scripts.  
+- However, any MySQL-compatible IDE or client can be used without affecting the solution.
+
+
+
