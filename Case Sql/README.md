@@ -1,14 +1,14 @@
 
 # RBAC MySQL Case – Taylor Permissions Fix
 
-## 🇧🇷 Português
+## Português
 
-### 📌 Visão geral
+### Visão geral
 
 Este repositório apresenta uma solução para um problema de permissão em um sistema que usa o Controle de Acesso Baseado em Função (RBAC).  
 O caso se concentra na correção da modelagem de papéis para alinhar o comportamento do sistema com as regras de negócios, seguindo as melhores práticas de segurança e escalabilidade.
 
-### 📌 Contexto
+###  Contexto
 
 Este repositório apresenta a solução para um problema de permissões reportado por um cliente em um sistema que utiliza **RBAC (Role-Based Access Control)**.
 
@@ -17,7 +17,7 @@ De acordo com a regra de negócio, esse comportamento estava incorreto.
 
 ---
 
-### 🐞 Descrição do Problema
+###  Descrição do Problema
 
 **Comportamento atual**
 - Taylor consegue **criar produtos**
@@ -33,7 +33,7 @@ Esse cenário indica um **problema de modelagem de papéis (roles)**, e não ape
 
 ---
 
-### 🧠 Estratégia e Decisão de Design
+### Estratégia e Decisão de Design
 
 O problema foi resolvido revisando o modelo RBAC, evitando correções específicas por usuário.
 
@@ -55,7 +55,7 @@ Apesar do papel `manage` já possuir a permissão de modificar produtos, atribu�
 
 Papéis representam **responsabilidades**, não ações isoladas.
 
-## 🗄️ Database 
+## Database 
 
 ### Credencias
 - **User:** `root`
@@ -63,7 +63,7 @@ Papéis representam **responsabilidades**, não ações isoladas.
   
 <img width="553" height="547" alt="image" src="https://github.com/user-attachments/assets/9811c84f-0c2d-48bd-94fe-04e9ffab5edf" />
 
-# Observação importante ⚠️
+# Observação importante 
 
 - No primeiro momento, não é possível definir o nome do banco de dados, pois ocorre erro na conexão.
 - Por isso, siga este fluxo:
@@ -94,13 +94,13 @@ USE Klavi;
 
 ----
 
-# 🇺🇸 English
+#  English
 
-## 📌 Overview
+##  Overview
 This repository presents a solution for a permission issue in a system that uses Role-Based Access Control (RBAC).  
 The case focuses on correcting role modeling to align system behavior with business rules, following security and scalability best practices.
 
-### 📌 Context
+###  Context
 
 This repository presents a solution for a permission issue reported by a customer in a system that uses **Role-Based Access Control (RBAC)**.
 
@@ -109,7 +109,7 @@ According to business rules, this behavior was incorrect.
 
 ---
 
-### 🐞 Problem Description
+###  Problem Description
 
 **Current behavior**
 - Taylor can **create products**
@@ -125,7 +125,7 @@ This scenario indicates a **role modeling issue**, not a simple missing permissi
 
 ---
 
-### 🧠 Strategy and Design Decision
+###  Strategy and Design Decision
 
 The issue was resolved by reviewing the RBAC model instead of applying user-specific fixes.
 
@@ -137,7 +137,7 @@ This keeps the authorization model clean, scalable, and aligned with business ru
 
 ---
 
-### ❌ Why NOT assign the `manage` role?
+###  Why NOT assign the `manage` role?
 
 Although the `manage` role already includes the permission to modify products, assigning it to Taylor would be incorrect because:
 - It is an **administrative role**
@@ -149,7 +149,7 @@ Roles represent **responsibilities**, not isolated actions.
 
 ---
 
-## 🗄️ Database Setup
+##  Database Setup
 
 ### Credentials
 - **User:** `root`
@@ -157,7 +157,7 @@ Roles represent **responsibilities**, not isolated actions.
 
 <img width="553" height="547" alt="image" src="https://github.com/user-attachments/assets/9811c84f-0c2d-48bd-94fe-04e9ffab5edf" />
 
-# Important note ⚠️
+# Important note 
 
 - At first, it is not possible to define the database name, as this will cause a connection error.
 - Therefore, follow the steps below:
