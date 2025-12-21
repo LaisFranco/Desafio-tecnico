@@ -1,137 +1,3 @@
-# Test Plan – Resources API (Open Finance Brasil) - English #
- 
- ## 1. Test Plan Objective
-
-The objective of this test plan is to validate the implementation of the Resources API, ensuring that customer resource information is exposed correctly, securely, and in compliance with the Open Finance Brasil specifications.
-This test plan focuses on validating:
-
-* API contract and schema
-* Authorization and permission rules
-* Resource status rules
-* Pagination behavior
-* Error handling
-* Compliance with documented changes (changelog)
-
-## 2. API Overview
-
-The Resources API exposes the endpoint:
-
-```GET /resources/v3/resources```
-ist of customer resources associated with a specific consent, identified indirectly by the OAuth2 access token.
-Important rules from the specification:
-
-* The API is available only for consents with status AUTHORISED
-* The required permission is RESOURCES_READ
-* Each returned resource must reflect both consent status and resource availability
-* The API does not differentiate between individual and business customers
-
-## 3. Test Scope
-
-In Scope:
-
-* Endpoint GET /resources/v3/resources
-* Request headers (mandatory and optional)
-* OAuth2 authorization and permissions
-* Pagination parameters (page, page-size)
-* Resource status rules
-* Response schema validation
-* Error responses defined in the OAS
-* Changes introduced in version 3.0.0
-
-Out of Scope
-
-* Consent creation flow
-* OAuth2 authorization server behavior
-* Downstream APIs that consume resourceId
-* UI or frontend validation
-
-## 4. Test Approach
-
-Testing will be performed using a contract-based approach, focusing on validating the API behavior against the OpenAPI specification.
-Due to the absence of a real banking environment, tests will be designed to be:
-
-* Executable using mock servers
-* Validated through schema and rule enforcement
-* Easily automated in the future
-
-## 5. Test Types and Scenarios
-## 5.1 Authorization and Permission Tests
-
-* Validate access with valid OAuth2 token
-* Validate required permission RESOURCES_READ
-* Validate access denied for missing or invalid permission
-* Validate access denied for non-AUTHORISED consent
-
-## 5.2 Header Validation Tests
-
-Mandatory headers:
-* Authorization
-* x-fapi-interaction-id (UUID – RFC4122)
-
-## 5.3 Functional Tests – Successful Response (200)
-
-* Validate HTTP 200 response
-* Validate response content-type
-* Validate response structure:
-    * data
-    * links
-    * meta
-* Validate each resource contains:
-    * resourceId
-    * type
-    * status
-* Validate allowed values for:
-    * type enum
-    * status enum
-* Validate pagination rules:
-    * Default page = 1
-    * Minimum page-size = 25
-* Validate navigation links
-
-
-## 5.4 Functional Tests – Error Scenarios
-
-Validate the following error responses:
-* 202, 400, 401, 403, 404, 405, 406, 429, 500, 504, 529
-For each error:
-* Validate error schema
-* Validate absence of sensitive data
-* Validate meta information
-
-## 6. Regression and Changelog Validation
-
-* Validate mandatory x-fapi-interaction-id
-* Validate UUID format enforcement
-* Validate new enum values (EXCHANGE)
-* Validate pagination minimum changes
-* Ensure no contract breaking changes
-
-## 7. Test Data Strategy
-
-* Synthetic and anonymized data
-* Different resource types and statuses
-* Different pagination scenarios
-
-## 8. Exit Criteria
-
-* All critical test cases executed
-* No open compliance or security issues
-* API behavior aligned with specification
-
-## 9. Risks and Assumptions
-
-* Real OAuth2 flows are not available
-* Tests rely on contract and mock execution
-* Assumes downstream APIs comply with resource identifiers
-
-
-## 10. Final Considerations
-
-This test plan ensures that the Resources API can be safely exposed within the Open Finance ecosystem, focusing on correctness, security, and regulatory compliance.
-
------
-
-
  # Plano de Teste – API de Recursos (Open Finance Brasil) #
 
  
@@ -263,3 +129,137 @@ Para cada erro:
 ## 10. Considerações finais
 
 Este plano de testes garante que a API Resources possa ser exposta com segurança no ecossistema Open Finance, com foco em correção, segurança e conformidade regulatória.
+
+
+------
+
+# Test Plan – Resources API (Open Finance Brasil) - English #
+ 
+ ## 1. Test Plan Objective
+
+The objective of this test plan is to validate the implementation of the Resources API, ensuring that customer resource information is exposed correctly, securely, and in compliance with the Open Finance Brasil specifications.
+This test plan focuses on validating:
+
+* API contract and schema
+* Authorization and permission rules
+* Resource status rules
+* Pagination behavior
+* Error handling
+* Compliance with documented changes (changelog)
+
+## 2. API Overview
+
+The Resources API exposes the endpoint:
+
+```GET /resources/v3/resources```
+ist of customer resources associated with a specific consent, identified indirectly by the OAuth2 access token.
+Important rules from the specification:
+
+* The API is available only for consents with status AUTHORISED
+* The required permission is RESOURCES_READ
+* Each returned resource must reflect both consent status and resource availability
+* The API does not differentiate between individual and business customers
+
+## 3. Test Scope
+
+In Scope:
+
+* Endpoint GET /resources/v3/resources
+* Request headers (mandatory and optional)
+* OAuth2 authorization and permissions
+* Pagination parameters (page, page-size)
+* Resource status rules
+* Response schema validation
+* Error responses defined in the OAS
+* Changes introduced in version 3.0.0
+
+Out of Scope
+
+* Consent creation flow
+* OAuth2 authorization server behavior
+* Downstream APIs that consume resourceId
+* UI or frontend validation
+
+## 4. Test Approach
+
+Testing will be performed using a contract-based approach, focusing on validating the API behavior against the OpenAPI specification.
+Due to the absence of a real banking environment, tests will be designed to be:
+
+* Executable using mock servers
+* Validated through schema and rule enforcement
+* Easily automated in the future
+
+## 5. Test Types and Scenarios
+## 5.1 Authorization and Permission Tests
+
+* Validate access with valid OAuth2 token
+* Validate required permission RESOURCES_READ
+* Validate access denied for missing or invalid permission
+* Validate access denied for non-AUTHORISED consent
+
+## 5.2 Header Validation Tests
+
+Mandatory headers:
+* Authorization
+* x-fapi-interaction-id (UUID – RFC4122)
+
+## 5.3 Functional Tests – Successful Response (200)
+
+* Validate HTTP 200 response
+* Validate response content-type
+* Validate response structure:
+    * data
+    * links
+    * meta
+* Validate each resource contains:
+    * resourceId
+    * type
+    * status
+* Validate allowed values for:
+    * type enum
+    * status enum
+* Validate pagination rules:
+    * Default page = 1
+    * Minimum page-size = 25
+* Validate navigation links
+
+
+## 5.4 Functional Tests – Error Scenarios
+
+Validate the following error responses:
+* 202, 400, 401, 403, 404, 405, 406, 429, 500, 504, 529
+For each error:
+* Validate error schema
+* Validate absence of sensitive data
+* Validate meta information
+
+## 6. Regression and Changelog Validation
+
+* Validate mandatory x-fapi-interaction-id
+* Validate UUID format enforcement
+* Validate new enum values (EXCHANGE)
+* Validate pagination minimum changes
+* Ensure no contract breaking changes
+
+## 7. Test Data Strategy
+
+* Synthetic and anonymized data
+* Different resource types and statuses
+* Different pagination scenarios
+
+## 8. Exit Criteria
+
+* All critical test cases executed
+* No open compliance or security issues
+* API behavior aligned with specification
+
+## 9. Risks and Assumptions
+
+* Real OAuth2 flows are not available
+* Tests rely on contract and mock execution
+* Assumes downstream APIs comply with resource identifiers
+
+
+## 10. Final Considerations
+
+This test plan ensures that the Resources API can be safely exposed within the Open Finance ecosystem, focusing on correctness, security, and regulatory compliance.
