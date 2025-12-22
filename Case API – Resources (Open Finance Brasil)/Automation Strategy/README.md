@@ -1,6 +1,6 @@
 # Test Plan – Automation Strategy/ Estrategia de Automação
 
-## Apesar de não existir uma collection do Postman neste repositório, este documento descreve como os testes seriam implementados utilizando Postman e Newman assim que um ambiente real de homologação estivesse disponível.
+**Apesar de não existir uma collection do Postman neste repositório, este documento descreve como os testes seriam implementados utilizando Postman e Newman assim que um ambiente real de homologação estivesse disponível.**
 
 ### 1. Objetivo
 
@@ -167,3 +167,4 @@ Mitigação:
 * 100% dos testes críticos aprovados
 * Nenhuma quebra de contrato
 * Conformidade total com v3.0.0
+
