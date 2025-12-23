@@ -76,9 +76,9 @@ Papéis representam **responsabilidades**, não ações isoladas.
 - No primeiro momento, não é possível definir o nome do banco de dados, pois ocorre erro na conexão.
 - Por isso, siga este fluxo:
 
-1-Crie a conexão sem informar o nome do banco (em branco)
-2-Realize o teste de conexão
-3-Após a conexão criada com sucesso:
+1-Crie a conexão sem informar o nome do banco (em branco)<br>
+2-Realize o teste de conexão<br>
+3-Após a conexão criada com sucesso:<br>
   - Clique com o botão direito sobre a conexão
   - Selecione New → Query Console
   - Crie o banco de dados manualmente via script SQL
